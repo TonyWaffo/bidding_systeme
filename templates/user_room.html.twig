@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <div class="container">
+      <div class="row col-md-6 col-md-offset-2 custyle">
+      <table class="table table-striped custab">
+       <thead text-align="center">
+       <tr>
+             <th>Article: {{ room.article }}</th>
+        </tr>
+       </thead>
+        <tr>
+             <td> ID </td>
+             <td> {{ room.id }} </td>
+         </tr>
+         <tr>
+             <td> Prix </td> 
+             <td> {{ room.prix }} </td>
+         </tr>
+         <tr>
+             <td> Description </td>
+             <td> {{ room.description }} </td>
+         </tr>
+         <tr>
+             <td> Counter </td>
+             <td> {{ room.counter }} </td>
+         </tr>
+         <td> Timer </td>
+             <td> {{ room.timer }} </td>
+         <tr>
+             <td> Membres </td>
+             <td><ul> {% for member in members %}  <li>{{ member.name }}</li>  {% endfor %} </ul></td>
+         </tr>
+         <tr>
+             <td> Images </td>
+             <td>
+               {% for image in images %}  
+                 <img src="{{image.BlobFile}}" alt="" width="100" height="100" /> 
+               {% endfor %} 
+               
+             </td>
+         </tr>
+      </table>
+      </div>
+    </div>
+   
+{% endblock %}

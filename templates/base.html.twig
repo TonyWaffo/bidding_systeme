@@ -1,19 +1,76 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block javascripts %}
+            {# Les 3 prochains tags sont pour le nav bar #}
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            {#  <script src="{{ asset('') }}"></script>#}
+
+            {# Les 2 prochains tags sont pour le tableau #}
+            <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+            
+
         {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+        {% block stylesheets %}
+            {# Les 2 prochains tags sont pour le nav bar #}
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            {#<link href="{{ asset('css/navBar.css')}}" rel="stylesheet">#}
+
+            {# Les 2 prochains tags sont pour le tableau #}
+            <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            {#<link href="{{ asset('css/table.css')}}" rel="stylesheet">#}
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            {% block head %}
+                <div class="top bg-dark text-light py-3">
+                    <div class="container-nav topheader">
+                        <div class="d-flex justify-content-between">
+                            <div class="left">
+                                <a class="text-light logo lead" terget="_blank" href="https://www.totoprayogo.com">Logo</a>
+                            </div>
+                            <div class="kanan">
+                                <a class="text-light logo lead" terget="_blank" href="https://github.com/doric">Click</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="bottom bg-light sticky-top shadow-sm">
+                    <div class="container-nav">
+                        <ul class="nav nav-bottom nav-fill">
+                            <li class="nav-item">
+                                <a class="nav-link bg-primary text-white" terget="_blank" href="https://www.totoprayogo.com"><i class="fas fa-user-circle"></i> <span class="d-none d-sm-inline-block d-md-inline-block">People</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" terget="_blank" href="https://www.totoprayogo.com"><i class="fas fa-file-invoice"></i> <span class="d-none d-sm-inline-block d-md-inline-block">Project</span></a>
+                            </li>
+                
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="{{ path('create_room') }}"><i class="fas fa-plus-circle"></i> <span class="d-none d-sm-inline-block d-md-inline-block">Create a room</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#"><span class="badge badge-danger badge-pill custom-badge">20</span> <i class="fas fa-bell"></i> <span class="d-none d-sm-inline-block d-md-inline-block">Notification</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="#"><i class="fas fa-cog"></i> <span class="d-none d-sm-inline-block d-md-inline-block">Setting</span></a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            {% endblock %}
+            {% block content %}
+
+            {% endblock %}
+        {% endblock %}
     </body>
 </html>

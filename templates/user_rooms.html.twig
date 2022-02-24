@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <div class="container">
+      <div class="row col-md-6 col-md-offset-2 custyle">
+      <table class="table table-striped custab">
+       <thead>
+       <tr>
+             <th>Name: {{ user.firstName }}</th>
+         </tr>
+        <tr>
+            <th>Room ID</th>
+            <th>Article</th>
+        </tr>
+       </thead>
+        {% for room in rooms %}
+        <tr>
+            <td>{{ room.id }}</td>
+            <td><a href="{{ path('show_room', { 'id': room.id } ) }}"> {{ room.article }}</a></td> 
+            {# 'path' prend en paramètre le lien et les données qu'on veut envoyer dans le lien #}
+        </tr>
+        {% endfor %}
+      </table>
+      </div>
+    </div>
+{% endblock %}
